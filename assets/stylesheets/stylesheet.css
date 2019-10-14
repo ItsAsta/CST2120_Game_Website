@@ -1,5 +1,5 @@
 html, body {
-    background-color: #1e1e1e;
+    background-color: #b5b5b5;
     color: white;
     width: 100%;
     height: 100%;
@@ -14,61 +14,47 @@ html, body {
     src: url(../fonts/simplifica.ttf) format('truetype');
 }
 
-.loginForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 30%;
+#NavBar .active {
+    background-color: #373737;
+    color: white;
 }
 
-.removeDeco p {
-    margin-top: 2%;
-}
-
-.removeDeco a{
-    text-decoration: none;
-    color: #ffffff;
+#NavBar li a {
     display: block;
-}
-
-button {
+    color: #191919;
     text-align: center;
-    margin-top: 10px;
-    border: 1px solid #ff0001;
-    border-radius: 20px;
-    padding: 5px 5px;
-    width: 10%;
-    color: #ffffff;
-    background-color: #46000E;
-    cursor: pointer;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-button:hover {
-    background-color: #ff0001;
-    border: 1px solid #46000E;
-    border-radius: 20px;
+#NavBar li:hover {
+    -webkit-animation: rightThenLeft 4s linear;
+    background-color: #a5a5a5;
 }
 
-button:focus {
-    outline: 0;
-    border: 1px solid #ffffff;
-    border-radius: 20px;
+#NavBar li {
+    float: left;
 }
 
-.logo {
-    text-align: center;
-    position: relative;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#NavBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dcdcdc;
+    border-bottom: 5px solid #373737;
 }
 
-.logo img {
-    display: inline-block;
+.NavBarRightContainer {
+    float: right;
 }
 
-.logo p {
-    font-size: 26px;
+#NavBarRight li {
+    float: left;
+}
+
+@-webkit-keyframes rightThenLeft {
+    0%   {margin-right:0;}
+    50%  {margin-right:100%;}
+    100% {margin-right:0;}
 }
