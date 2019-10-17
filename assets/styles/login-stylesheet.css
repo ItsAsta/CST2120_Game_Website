@@ -1,0 +1,60 @@
+.form-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 400px;
+    border-radius: 10px;
+    border: #ffffff solid 1px;
+    box-shadow: 0 0 30px 10px #000000;
+    margin: 200px auto;
+    text-align: center;
+    display: none;
+}
+
+.form-container label, a {
+    color: white;
+}
+
+form {
+    margin: 25px 50px 10px 50px;
+    display: inline-block;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    outline: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: #ffffff solid 1px;
+}
+
+form button {
+    background-color: rgba(0, 0, 0, 0);
+    border: #9b9b9b solid 1px;
+    color: white;
+    outline: none;
+    width: 150px;
+    margin-bottom: 50px;
+    height: 22px;
+    border-radius: 10px;
+}
+
+form button:focus, button:active, button:hover {
+    border: #9b9b9b solid 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px 2px #000000;
+}
+
+.clickable-text {
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.clickable-text:hover {
+    color: #9b9b9b;
+    cursor: pointer;
+}
