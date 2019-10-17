@@ -15,7 +15,7 @@ html, body {
 @font-face {
     font-family: Simp;
     src: local('Simplifica Regular'), local('Simplifica');
-    src: url(../fonts/simplifica.ttf) format('truetype');
+    src: url(fonts/simplifica.ttf) format('truetype');
 }
 
 .preloader {

@@ -2,21 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/stylesheet.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="assets/javascripts/indexJS.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
+    <?php include_once('inc/scripts.inc.php');?>
     <title>Scoreboard</title>
 </head>
 <body>
-<div id="NavBar">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="scoreboard.html">Scoreboard</a></li>
-        <div id="NavBarRight" class="NavBarRightContainer">
-            <li><a href="login.html">Login</a></li>
-        </div>
-    </ul>
-</div>
+<?php $currentPage = 'scoreboard'; ?>
+<?php include_once('inc/nav-bar.inc.php');?>
+
 <div class="scoreboard-container">
     <table class="table">
         <tbody>
