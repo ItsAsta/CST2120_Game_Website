@@ -5,9 +5,11 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     font-family: Simp, "Times New Roman", serif;
     letter-spacing: 3px;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 @font-face {
     font-family: Simp;
@@ -20,6 +22,7 @@ html, body {
     color: white;
 }
 
+/*NAVIGATION*/
 .nav-bar li a {
     display: block;
     color: #191919;
@@ -28,8 +31,9 @@ html, body {
     text-decoration: none;
 }
 
-.nav-bar li:hover {
-    background-color: #cdcdcd;
+.nav-bar li a:hover {
+    background-color: #5f5f5f;
+    color: white;
 }
 
 .nav-bar li {
@@ -53,12 +57,60 @@ html, body {
     float: left;
 }
 
+/*FOOTER*/
 .footer {
-    position:absolute;
-    bottom:0;
+    margin-top: 50px;
+    border-top: #373737 solid 5px;
+    background-color: #f5f5f5;
+    font-size: 13px;
+    height: 200px;
+    /*position:absolute; !* This is a footer that is contained by a positioned main container *!*/
+    /*bottom:0;*/
     width:100%;
-    height:60px;   /* Height of the footer */
-    background:#6cf;
+}
+
+
+.footer-wrapper {
+    min-height: 100%;
+    padding-bottom:100px;
+    position: relative;
+}
+
+.footer-container-left {
+    display: inline-block;
+    float: left;
+    margin-left: 10%;
+    text-align: center;
+}
+.footer-container-right {
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+    text-align: center;
+}
+
+.footer-container-right a {
+    color: black;
+}
+
+.footer-nav li a {
+    display: block;
+    color: #191919;
+    text-align: center;
+    padding: 5px 16px;
+    text-decoration: none;
+}
+
+.footer-nav li a:hover {
+    background-color: #5f5f5f;
+    color: white;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
 .scoreboard-container {
@@ -79,7 +131,8 @@ html, body {
     border-right: #373737 solid 1px;
     border-left: #373737 solid 1px;
     text-transform: uppercase;
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: 14px;
     letter-spacing: 3px;
 }
 
@@ -89,5 +142,5 @@ html, body {
 }
 
 .center-table-contents {
-    margin: 20px auto auto auto;
+    margin: 20px 0 0 0;
 }

@@ -1,20 +1,22 @@
 $(document).ready(function() {
-    $("#sign-up-form").hide();
-    $("#sign-in-form").slideDown(1000);
+    // $("#register-form").hide();
+    // $("#login-form").slideDown(1000);
+    //
+    // $("#register-link").on('click', function () {
+    //     $("#login-form").slideUp(1000, function () {
+    //         $("#register-form").slideDown(1000);
+    //     });
+    //
+    // });
+    //
+    // $("#login-link").on('click', function () {
+    //     $("#register-form").slideUp(1000, function () {
+    //         $("#login-form").slideDown(1000);
+    //     })
+    //
+    // });
 
-    $("#sign-up-link").on('click', function () {
-        $("#sign-in-form").slideUp(1000, function () {
-            $("#sign-up-form").slideDown(1000);
-        });
+    // document.getElementById("username").innerHTML = JSON.parse(localStorage.getItem("accountObject")).password;
 
-    });
-
-    $("#sign-in-link").on('click', function () {
-        $("#sign-up-form").slideUp(1000, function () {
-            $("#sign-in-form").slideDown(1000);
-        })
-
-    });
-
-    console.log("Ready")
+    console.log("Index Ready" + document.cookie)
 });

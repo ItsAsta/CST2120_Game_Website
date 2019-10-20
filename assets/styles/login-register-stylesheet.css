@@ -4,7 +4,7 @@
     border-radius: 10px;
     border: #ffffff solid 1px;
     box-shadow: 0 0 30px 10px #000000;
-    margin: 200px auto;
+    margin: 210px auto;
     text-align: center;
     display: none;
 }
@@ -57,4 +57,18 @@ form button:focus, button:active, button:hover {
 .clickable-text:hover {
     color: #9b9b9b;
     cursor: pointer;
+}
+
+.negative-alert {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.positive-alert {
+    color: greenyellow;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 20px;
 }

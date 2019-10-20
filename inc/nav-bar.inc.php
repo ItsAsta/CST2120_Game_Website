@@ -8,10 +8,11 @@
     <div class="nav-bar">
         <ul>
             <li <?php if ($currentPage === 'index') {echo 'id="active"';} ?>><a href="index.php">Home</a></li>
+            <li <?php if ($currentPage === 'score-history') {echo 'id="active"';} ?>><a href="score-history.php">Score History</a></li>
             <li <?php if ($currentPage === 'scoreboard') {echo 'id="active"';} ?>><a href="scoreboard.php">Scoreboard</a></li>
-            <div class="nav-bar-right nav-bar-right-container">
-                <li <?php if ($currentPage === 'user') {echo 'id="active"';} ?>><a href="user.php">User</a></li>
-            </div>
+                <li id="account-status" <?php if ($currentPage === 'login-register') {echo 'id="active"';} ?>>
+                    <a></a>
+                </li>
         </ul>
     </div>
 </body>

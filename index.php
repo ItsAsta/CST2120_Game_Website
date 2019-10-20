@@ -9,5 +9,11 @@
 <body>
 <?php $currentPage = 'index'; ?>
 <?php include_once('inc/nav-bar.inc.php');?>
+<script>
+    if (getUsernameCookie() !== "") {
+        console.log("Broooo yooo " + getUsernameCookie())
+    }
+</script>
+<?php include_once('inc/footer.inc.php');?>
 </body>
 </html>
