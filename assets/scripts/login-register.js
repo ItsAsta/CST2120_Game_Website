@@ -1,41 +1,47 @@
 $(document).ready(function () {
-    //Hides the register form with the id register-form.
+    // Hides the register form with the id register-form.
     $("#register-form").hide();
 
-    //Slides down our login-form with the id login-form.
+    // Slides down our login-form with the id login-form.
     $("#login-form").slideDown(300);
 
-    //If the register link text is clicked, we'll execute a function.
+    // If the register link text is clicked, we'll execute a function.
     $("#register-link").on('click', function () {
-        //Once the function is executed, execute slideUp function, then execute another function.
+        // Once the function is executed, execute slideUp function, then execute another function.
         $("#login-form").slideUp(300, function () {
-            //The clearHtml() function is executed, followed by another slideDown function.
+            // The clearHtml() function is executed, followed by another slideDown function.
             clearHtml();
             $("#register-form").slideDown(300);
         });
     });
 
-    //If the login link text is clicked, we'll execute a function.
+    // If the login link text is clicked, we'll execute a function.
     $("#login-link").on('click', function () {
-        //Once the function is executed, execute slideUp function, then execute another function.
+        // Once the function is executed, execute slideUp function, then execute another function.
         $("#register-form").slideUp(300, function () {
-            //The clearHtml() function is executed, followed by another slideDown function.
+            // The clearHtml() function is executed, followed by another slideDown function.
             clearHtml();
             $("#login-form").slideDown(300);
         })
     });
 
+    //A function which is called to change the navigation bar from login/register to logout.
     changeNav();
 
+    // An on click function that logs out by removing the cookie.
     $("#account-status").click(function () {
-        console.log("hahaha");
-        document.cookie = "username=; expires=Thu, 01 Jan 2000 00:00:00 GMT; path=/;"
+        document.cookie = "username=; expires=Thu, 01 Jan 2000 12:12:12 GMT; path=/;"
+    });
+
+    $("#clearData").click(function () {
+        localStorage.clear();
+        console.log("Cleared storage - Size: " + localStorage.length);
     });
 
     console.log("Login/Register Ready");
 });
 
-//Constant variables to store repetitive non-immutable text.
+// Constant variables to store repetitive non-immutable text.
 const LOGIN_ALERT = "#login-alert";
 const REGISTER_ALERT = "#register-alert";
 
@@ -48,9 +54,9 @@ function register() {
     var password = document.getElementById("register-password").value.toLocaleLowerCase();
     var confirmPassword = document.getElementById("register-confirm-password").value.toLocaleLowerCase();
 
-    //A for loop to iterate the localstorage.
+    // A for loop to iterate the local storage.
     for (let i = 0; i < localStorage.length; i++) {
-        //While iterating, we'll store the key in a variable to compare against.
+        // While iterating, we'll store the key in a variable to compare against.
         var key = localStorage.key(i);
 
         /* Compares the entered username with the username we got in the local storage,
@@ -92,7 +98,7 @@ function register() {
 
     // If username field is not empty and both password match, then register the account.
     if (username && (password === confirmPassword)) {
-        //Initiate a json object to store user information in a variable.
+        // Initiate a json object to store user information in a variable.
         var accountObj = {
             "username": "",
             "password": "",
@@ -100,7 +106,7 @@ function register() {
             "gamePoints": []
         };
 
-        //Store the json object of the user, with the username as a key into the localstorage.
+        // Store the json object of the user, with the username as a key into the localstorage.
         accountObj.username = username;
         accountObj.password = password;
         localStorage.setItem(username, JSON.stringify(accountObj));
@@ -129,9 +135,6 @@ function login() {
             document.cookie = "username=" + username + ";path=/";
             $(LOGIN_ALERT).removeClass(NEGATIVE_ALERT_CLASS);
             $(LOGIN_ALERT).addClass(POSITIVE_ALERT_CLASS);
-
-            globalUsername = username;
-            globalPassword = password;
             return;
         }
     }
@@ -139,23 +142,6 @@ function login() {
     $(LOGIN_ALERT).text("Invalid Username or Password!");
     $(LOGIN_ALERT).removeClass(POSITIVE_ALERT_CLASS);
     $(LOGIN_ALERT).addClass(NEGATIVE_ALERT_CLASS);
-
-    // /* If the username matches the username we got store in our local storage, as well as the password,
-    //    then we'll continue logging the user in, else we'll throw an error.
-    // */
-    // if (storageUsername === username && storagePassword === password) {
-    //     $(LOGIN_ALERT).text("User is found!");
-    //     $(LOGIN_ALERT).removeClass(NEGATIVE_ALERT_CLASS);
-    //     $(LOGIN_ALERT).addClass(POSITIVE_ALERT_CLASS);
-    //
-    //     globalUsername = username;
-    //     globalPassword = password
-    // } else {
-    //     $(LOGIN_ALERT).text("Invalid Username or Password!");
-    //     $(LOGIN_ALERT).removeClass(POSITIVE_ALERT_CLASS);
-    //     $(LOGIN_ALERT).addClass(NEGATIVE_ALERT_CLASS);
-    //
-    // }
 }
 
 // Cleans the form up when this function is called.
@@ -169,20 +155,28 @@ function clearHtml() {
     $(LOGIN_ALERT).removeClass(NEGATIVE_ALERT_CLASS);
     $(LOGIN_ALERT).text("");
 
-    // Removes any text we got in our input attribute.
+    // Removes any text we got in our input element.
     $("input").val("");
 }
 
+// A function to get the username cookie.
 function getUsernameCookie() {
+    // If the word "username=" is not there, we assume there isn't any cookie.
     if (document.cookie.indexOf("username=") < 0) {
         return null;
     }
+
+    // Returns the cookie value, by splitting the cookie string into an array, and getting the first index.
     return document.cookie.split("=")[1];
 }
 
+// A function to change the status of the navigation bar, whether we logged in or not.
 function changeNav() {
+    // Checks if the username cookie is there or not. Returns null if it isn't.
     if (getUsernameCookie() !== null) {
+        // Change the "a" element text under the id "account-status"
         $("#account-status a").text("Logout");
+        // Adds a new href attribute.
         $("#account-status a").attr("href", "index.php");
     } else {
         $("#account-status a").text("Login/Register");
@@ -190,18 +184,19 @@ function changeNav() {
     }
 }
 
-function checkList() {
+function addStorage() {
 
-    console.log(getUsernameCookie());
+    console.log(localStorage.length);
 
     for (let i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
         var obj = JSON.parse(localStorage.getItem(key));
+        var date = new Date();
 
-        obj.gameDate.push("19/10/2019");
+        obj.gameDate.push(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " | " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear());
+        obj.gamePoints.push(Math.floor(Math.random() * 100));
 
         var updatedObj = JSON.stringify(obj);
         localStorage.setItem(key, updatedObj);
-        console.log(JSON.parse(localStorage.getItem(key)).gameDate)
     }
 }

@@ -18,5 +18,5 @@ $(document).ready(function() {
 
     // document.getElementById("username").innerHTML = JSON.parse(localStorage.getItem("accountObject")).password;
 
-    console.log("Index Ready" + document.cookie)
+    console.log("Index Ready")
 });

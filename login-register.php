@@ -20,7 +20,7 @@
         <br>
         <input id="login-password" type="password" name="password" placeholder="*********" onfocus="placeholder = ''" onblur="placeholder = '*********'">
         <br>
-        <button onclick="login()" type="button">LOGIN</button>
+        <button onclick="login();location.href='index.php'" type="button">LOGIN</button>
         <br>
         <a>Not registered?</a>
         <br>
@@ -46,7 +46,6 @@
         <a id="login-link" class="clickable-text">Click to login</a>
     </form>
 </div>
-<button style="margin: auto; display: block" onclick="checkList()">CHECK LIST</button>
 <?php include_once('inc/footer.inc.php');?>
 </body>
 </html>

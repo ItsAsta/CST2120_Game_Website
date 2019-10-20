@@ -14,7 +14,7 @@
     <table class="table">
         <tbody>
         <tr>
-            <th id="username">#USERNAME</th>
+            <th id="username">N/A</th>
         </tr>
         <tr>
             <th>RANK</th>
@@ -22,9 +22,9 @@
             <th>TOTAL POINTS</th>
         </tr>
         <tr>
-            <td>1</td>
-            <td>82</td>
-            <td>142</td>
+            <td>N/A</td>
+            <td id="total-games-played">N/A</td>
+            <td id="total-game-points">N/A</td>
         </tr>
         </tbody>
     </table>
@@ -33,35 +33,11 @@
         <tr>
             <th>Global Scoreboard</th>
         </tr>
-        <tr>
+        <tr id="scoreboard-table-header">
             <th>RANK</th>
             <th>USERNAME</th>
             <th>GAMES PLAYED</th>
             <th>TOTAL POINTS</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Abdz</td>
-            <td>82</td>
-            <td>142</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Jorden</td>
-            <td>54</td>
-            <td>116</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Harry</td>
-            <td>29</td>
-            <td>99</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Jacob</td>
-            <td>13</td>
-            <td>68</td>
         </tr>
         </tbody>
     </table>
