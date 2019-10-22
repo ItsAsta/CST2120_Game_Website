@@ -113,6 +113,7 @@ html, body {
     background-color: #f5f5f5;
 }
 
+/*TABLE*/
 .scoreboard-container {
     margin: 30px 0 0 30px;
     background-color: #f5f5f5;
@@ -120,6 +121,10 @@ html, body {
     padding: 15px 15px 15px 15px;
     border: #9b9b9b solid 2px;
     box-shadow: 0 1px 10px #9b9b9b;
+}
+
+.table {
+    margin-bottom: 30px;
 }
 
 .table th, td {

@@ -20,7 +20,7 @@
         <br>
         <input id="login-password" type="password" name="password" placeholder="*********" onfocus="placeholder = ''" onblur="placeholder = '*********'">
         <br>
-        <button onclick="login();location.href='index.php'" type="button">LOGIN</button>
+        <button onclick="login()" type="button">LOGIN</button>
         <br>
         <a>Not registered?</a>
         <br>
