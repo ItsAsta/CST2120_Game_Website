@@ -8,8 +8,10 @@
     <title>Scoreboard</title>
 </head>
 <body>
-<?php $currentPage = 'scoreboard'; ?>
-<?php include_once('inc/nav-bar.inc.php'); ?>
+<?php
+include_once('inc/phpfunc.php');
+navigationOutput('Scoreboard');
+?>
 
 <div class="scoreboard-container">
     <table class="table">
@@ -31,6 +33,6 @@
     </table>
 </div>
 
-<?php include_once('inc/footer.inc.php'); ?>
+<?php leftFooterOutput("Scoreboard") ?>
 </body>
 </html>

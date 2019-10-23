@@ -8,8 +8,10 @@
     <title>Score History</title>
 </head>
 <body>
-<?php $currentPage = 'score-history'; ?>
-<?php include_once('inc/nav-bar.inc.php'); ?>
+<?php
+include_once('inc/phpfunc.php');
+navigationOutput('Score History');
+?>
 <div class="scoreboard-container">
     <table class="table">
         <tbody>
@@ -31,6 +33,6 @@
 </div>
 <button style="margin: auto; display: block" onclick="finishedGame()">FINISHED GAME</button>
 <button style="margin: auto; display: block" id="clearData">CLEAR STORAGE</button>
-<?php include_once('inc/footer.inc.php'); ?>
+<?php leftFooterOutput("Score History")?>
 </body>
 </html>

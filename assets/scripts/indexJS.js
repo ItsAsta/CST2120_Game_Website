@@ -9,7 +9,7 @@ $(document).ready(function() {
         console.log("Cleared storage - Size: " + localStorage.length);
     });
 
-    changeNav();
+    // changeNav();
 
     console.log("Index Ready")
 });

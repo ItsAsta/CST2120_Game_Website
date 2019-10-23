@@ -8,8 +8,10 @@
     <title>Login/Register</title>
 </head>
 <body background="assets/resources/form-background.jpg">
-<?php $currentPage = 'login-register'; ?>
-<?php include_once('inc/nav-bar.inc.php');?>
+<?php
+include_once('inc/phpfunc.php');
+navigationOutput('Login/Register');
+?>
 
 <div class="form-container" id="login-form">
     <form>
@@ -46,6 +48,6 @@
         <a id="login-link" class="clickable-text">Click to login</a>
     </form>
 </div>
-<?php include_once('inc/footer.inc.php');?>
+<?php leftFooterOutput("Login/Register")?>
 </body>
 </html>

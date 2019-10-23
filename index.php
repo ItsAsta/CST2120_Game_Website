@@ -7,13 +7,11 @@
     <title>Home</title>
 </head>
 <body>
-<?php $currentPage = 'index'; ?>
-<?php include_once('inc/nav-bar.inc.php');?>
-<script>
-    if (getUsernameCookie() !== "") {
-        console.log("Broooo yooo " + getUsernameCookie())
-    }
-</script>
-<?php include_once('inc/footer.inc.php');?>
+<?php
+include_once('inc/phpfunc.php');
+navigationOutput('Home');
+?>
+<a>HEHEHE</a>
+<?php leftFooterOutput('Home')?>
 </body>
 </html>
