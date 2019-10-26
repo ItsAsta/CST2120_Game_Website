@@ -1,31 +1,31 @@
 $(document).ready(function() {
-    if (getUsernameCookie() !== null) {
-        alert("Please login before playing!");
-        return;
-    }
-    $("#human-rock").click(function () {
-        humanDecision('rock', "human-rock");
+    // if (getUsernameCookie() === null) {
+    //     alert("Please login before playing!");
+    //     return;
+    // }
+    $("#user-rock").click(function () {
+        userSelection('rock', "user-rock");
     });
 
-    $("#human-paper").click(function () {
-        humanDecision('paper', "human-paper");
+    $("#user-paper").click(function () {
+        userSelection('paper', "user-paper");
     });
 
-    $("#human-scissor").click(function () {
-        humanDecision('scissor', "human-scissor");
+    $("#user-scissor").click(function () {
+        userSelection('scissor', "user-scissor");
     });
 
-    $("#check-selection").click(function () {
-        robotChoose();
+    $("#confirm-decision").click(function () {
+        robotRoll();
     })
 
 });
 
-const SELECT_OPTIONS = [['human-rock', 'human-paper', 'human-scissor'], ['rock', 'paper', 'scissor']];
+const SELECT_OPTIONS = [['user-rock', 'user-paper', 'user-scissor'], ['rock', 'paper', 'scissor']];
 
-let humanChoice;
+let userChoice;
 
-function humanDecision(name, id) {
+function userSelection(name, id) {
     var formatId = "#" + id;
 
     for (let i = 0; i < SELECT_OPTIONS[0].length; i++) {
@@ -45,30 +45,44 @@ function humanDecision(name, id) {
         $(formatId).addClass('selected');
         $(formatId).data('selected', true);
         $(formatId).attr('src', 'assets/resources/' + name + '-selected.png');
-        return humanChoice = name;
+        return userChoice = name;
     }
 }
 
-function robotChoose() {
+function robotRoll() {
     let robotChoices = ['rock', 'paper', 'scissor'];
 
     let randRobotChoice = robotChoices[Math.floor(Math.random()*robotChoices.length)];
 
-    if (humanChoice === 'rock') {
+    var userScore = parseInt($('#user-score').text());
+
+    var robotScore = parseInt($('#robot-score').text());
+
+
+
+    if (userChoice === 'rock') {
         if (randRobotChoice === 'rock') {
-            alert("It's a DRAW!")
+            $("#user-score").text(userScore + 3);
+            $("#robot-score").text(robotScore + 3);
+            updateWinner('draw');
+            animateScoreIncrease("#user-score", userScore);
+            animateScoreIncrease("#robot-score", robotScore);
         }
 
         if (randRobotChoice === 'paper') {
-            alert("Robot WINS!");
+            $("#robot-score").text(robotScore + 5);
+            updateWinner('robot');
+            animateScoreIncrease("#robot-score", robotScore);
         }
 
         if (randRobotChoice === 'scissor') {
-            alert("Humans WINS!");
+            $("#user-score").text(userScore + 5);
+            updateWinner('user');
+            animateScoreIncrease("#user-score", userScore);
         }
     }
 
-    if (humanChoice === 'paper') {
+    if (userChoice === 'paper') {
         if (randRobotChoice === 'paper') {
             alert("It's a DRAW!")
         }
@@ -78,11 +92,11 @@ function robotChoose() {
         }
 
         if (randRobotChoice === 'rock') {
-            alert("Humans WINS!");
+            alert("user WINS!");
         }
     }
 
-    if (humanChoice === 'scissor') {
+    if (userChoice === 'scissor') {
         if (randRobotChoice === 'scissor') {
             alert("It's a DRAW!")
         }
@@ -92,10 +106,52 @@ function robotChoose() {
         }
 
         if (randRobotChoice === 'paper') {
-            alert("Humans WINS!");
+            alert("user WINS!");
         }
     }
+}
 
-    console.log("Human Choice: " + humanChoice);
-    console.log("Robot Choice: " + randRobotChoice);
+function updateWinner(winner) {
+    var userWins = $('#user-wins').text().replace ( /[^\d.]/g, '' );
+    var userLoss = $('#user-loss').text().replace ( /[^\d.]/g, '' );
+
+    var robotWins = $('#robot-wins').text().replace ( /[^\d.]/g, '' );
+    var robotLoss = $('#robot-loss').text().replace ( /[^\d.]/g, '' );
+
+    var draws = $('#draws').text().replace ( /[^\d.]/g, '' );
+
+    if (winner === 'user') {
+        $("#user-wins").text("WINS: " + (parseInt(userWins) + 1));
+        $("#robot-loss").text("LOSS: " + (parseInt(robotLoss) + 1));
+    }
+
+    if (winner === 'draw') {
+        $("#draws").text("DRAWS: " + (parseInt(draws) + 1));
+    }
+
+    if (winner === 'robot') {
+        $("#robot-wins").text("WINS: " + (parseInt(robotWins) + 1));
+        $("#user-loss").text("LOSS: " + (parseInt(userLoss) + 1));
+    }
+
+
+}
+
+
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+};
+
+
+
+function animateScoreIncrease(id, previousPoints) {
+    $(id).prop('Counter', previousPoints).animate({
+        Counter: $(id).text()
+    }, {
+        duration: 500,
+        easing: 'swing',
+        step: function (now) {
+            $(id).text(Math.ceil(now));
+        }
+    });
 }

@@ -22,6 +22,14 @@ html, body {
     color: white;
 }
 
+/*BANNER*/
+.banner-container {
+    height: 120px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-image: url(../../assets/resources/banner.png);
+}
+
 /*NAVIGATION*/
 .nav-bar li a {
     display: block;
@@ -157,41 +165,72 @@ html, body {
     width: 1000px;
     height: 500px;
     text-align: center;
-    background-color: #373737;
     box-shadow: 0 0 30px 1px #000000;
     border-radius: 30px;
+    border: white solid 5px;
+    /*background-color: #2b2b2b;*/
+    background-image: url(../../assets/resources/game-background.png);
+    /*background: linear-gradient(90deg, rgba(36,0,0,1) 50%, rgba(0,14,255,1) 50%);*/
 }
 
 .left-image-container {
     float: left;
     display: inline-block;
-    margin: 50px 0 50px 70px;
+    margin: 50px 0 50px 12%;
 }
 
-.center-game-container {
 
+.center-game-container {
+    display: inline-block;
+    margin-top: 25%;
+}
+
+.center-game-container img {
+    opacity: 0;
+    width: 180px;
+    height: 180px;
 }
 
 .right-image-container {
     float: right;
     display: inline-block;
-    margin: 50px 70px 50px 0;
+    margin: 50px 12% 50px 0;
 }
+
 
 .selected {
     -webkit-animation: moveSelection 0.5s infinite  alternate;
     border-radius: 10px;
 }
 
-@keyframes moveSelection {
-    0% {
-        transform: translateY(0);
-        opacity: 0.5;
-    }
-    100% {
-        box-shadow: 0 0 10px gold;
-        transform: translateY(-20px);
-    }
+.robot-selection {
+    -webkit-animation: moveSelection 0.5s infinite  alternate;
+    border-radius: 10px;
+}
+
+.game-score {
+    font-weight: bolder;
+    margin-top: 60%;
+    color: white;
+    font-size: 64px;
+    /*font-style: italic;*/
+    margin-bottom: 0;
+}
+
+.game-score-label {
+    font-weight: bolder;
+    color: white;
+    font-size: 34px;
+    /*font-style: italic;*/
+    display: block;
+    margin-bottom: 100px;
+}
+
+.left-image-container span, .right-image-container span, .center-game-container span {
+    color: white;
+    font-size: 18px;
+    margin: 0 10px 0 10px;
+    display: block;
 }
 
 .option-wrapper {
@@ -202,10 +241,43 @@ html, body {
 .option-wrapper p {
     color: white;
     margin: 0;
+    font-weight: bolder;
 }
 
-/*BANNER*/
-.banner-container {
-    height: 120px;
-    width: 100%;
+.confirm-decision-btn {
+    margin-top: 100px;
+    background-color: rgba(149, 149, 149, 0.5);
+    border: #9b9b9b solid 1px;
+    color: white;
+    outline: none;
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.confirm-decision-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 30px black;
+    /*-webkit-animation: moveConfirmBtn 0.5s  alternate;*/
+    transition: all .1s ease-in-out;
+    transform: scale(1.05);
+}
+
+@keyframes moveConfirmBtn {
+    0% {
+        transform: scale(1,1);
+    }
+    100% {
+        transform: scale(1.2, 1.2);
+    }
+}
+
+@keyframes moveSelection {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        box-shadow: 0 0 10px white;
+        transform: translateY(-20px);
+    }
 }
