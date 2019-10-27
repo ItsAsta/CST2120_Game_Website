@@ -73,7 +73,7 @@ function getTopFive() {
         let topFive = [];
         let userAmount = localStorage.length;
         if (userAmount > 0) {
-                for (let i = 0; i < userAmount.length; i++) {
+                for (let i = 0; i < userAmount; i++) {
                         // Since localStorage.key() takes an int for the index, we'll pass it the index from our for loop.
                         let key = localStorage.key(i);
                         points.push([key, getTotalPoints(key)]);
