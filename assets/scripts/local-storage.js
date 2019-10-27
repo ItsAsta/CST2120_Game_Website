@@ -71,18 +71,22 @@ function fillHistoryTable() {
 function getTopFive() {
         let points = [];
         let topFive = [];
-        for (let i = 0; i < localStorage.length; i++) {
-                // Since localStorage.key() takes an int for the index, we'll pass it the index from our for loop.
-                let key = localStorage.key(i);
-                points.push([key, getTotalPoints(key)]);
-        }
+        let userAmount = localStorage.length;
+        if (userAmount > 0) {
+                for (let i = 0; i < userAmount.length; i++) {
+                        // Since localStorage.key() takes an int for the index, we'll pass it the index from our for loop.
+                        let key = localStorage.key(i);
+                        points.push([key, getTotalPoints(key)]);
+                }
 
-        points.sort(function(a, b) {
-                return b[1] - a[1];
-        });
-
-        for (let i = 0; i < 5; i++) {
-                topFive.push([points[i][0], points[i][1]]);
+                points.sort(function (a, b) {
+                        return b[1] - a[1];
+                });
+                if (userAmount >= 5) {
+                        for (let i = 0; i < 5; i++) {
+                                topFive.push([points[i][0], points[i][1]]);
+                        }
+                }
         }
 
         return topFive;
