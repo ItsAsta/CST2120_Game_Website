@@ -21,10 +21,14 @@ navigationOutput('Scoreboard');
         </tr>
         <tr>
             <th>TOTAL POINTS</th>
+            <th>TOTAL WINS</th>
+            <th>TOTAL LOSES</th>
             <th>GAMES PLAYED</th>
         </tr>
         <tr>
             <td id="total-game-points">N/A</td>
+            <td id="total-game-wins">N/A</td>
+            <td id="total-game-loss">N/A</td>
             <td id="total-games-played">N/A</td>
         </tr>
         </tbody>
@@ -32,7 +36,6 @@ navigationOutput('Scoreboard');
     <table id="global-scoreboard-table" class="table center-table-contents display">
     </table>
 </div>
-
-<?php leftFooterOutput("Scoreboard") ?>
+<?php footerOutput('Scoreboard') ?>
 </body>
 </html>

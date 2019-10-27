@@ -4,23 +4,24 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="assets/styles/login-register-stylesheet.css"
-    <?php include_once('inc/scripts.inc.php');?>
+    <?php include_once('inc/scripts.inc.php'); ?>
     <title>Login/Register</title>
 </head>
-<body background="assets/resources/form-background.jpg">
 <?php
 include_once('inc/phpfunc.php');
 navigationOutput('Login/Register');
 ?>
-
+<body background="assets/resources/form-background.jpg">
 <div class="form-container" id="login-form">
     <form>
         <label style="font-weight: bold">LOGIN</label>
         <br>
         <div id="login-alert"></div>
-        <input id="login-username" type="text" name="username" placeholder="Username" onfocus="placeholder = ''" onblur="placeholder = 'Username'" style="margin-top: 20px">
+        <input id="login-username" type="text" name="username" placeholder="Username" onfocus="placeholder = ''"
+               onblur="placeholder = 'Username'" style="margin-top: 20px">
         <br>
-        <input id="login-password" type="password" name="password" placeholder="*********" onfocus="placeholder = ''" onblur="placeholder = '*********'">
+        <input id="login-password" type="password" name="password" placeholder="*********"
+               onfocus="placeholder = ''" onblur="placeholder = '*********'">
         <br>
         <button onclick="login()" type="button">LOGIN</button>
         <br>
@@ -35,11 +36,14 @@ navigationOutput('Login/Register');
         <label style="font-weight: bold">REGISTER</label>
         <br>
         <div id="register-alert"></div>
-        <input id="register-username" type="text" name="username" placeholder="Username" onfocus="placeholder = ''" onblur="placeholder = 'Username'" style="margin-top: 20px">
+        <input id="register-username" type="text" name="username" placeholder="Username" onfocus="placeholder = ''"
+               onblur="placeholder = 'Username'" style="margin-top: 20px">
         <br>
-        <input id="register-password" type="password" name="password" placeholder="*********" onfocus="placeholder = ''" onblur="placeholder = '*********'">
+        <input id="register-password" type="password" name="password" placeholder="*********"
+               onfocus="placeholder = ''" onblur="placeholder = '*********'">
         <br>
-        <input id="register-confirm-password" type="password" name="confirm-password" placeholder="*********" onfocus="placeholder = ''" onblur="placeholder = '*********'">
+        <input id="register-confirm-password" type="password" name="confirm-password" placeholder="*********"
+               onfocus="placeholder = ''" onblur="placeholder = '*********'">
         <br>
         <button onclick="register()" type="button">REGISTER</button>
         <br>
@@ -48,6 +52,6 @@ navigationOutput('Login/Register');
         <a id="login-link" class="clickable-text">Click to login</a>
     </form>
 </div>
-<?php leftFooterOutput("Login/Register")?>
+<?php footerOutput('Login/Register') ?>
 </body>
 </html>

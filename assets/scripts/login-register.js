@@ -9,8 +9,8 @@ $(document).ready(function () {
     $("#register-link").on('click', function () {
         // Once the function is executed, execute slideUp function, then execute another function.
         $("#login-form").slideUp(300, function () {
-            // The clearLoginNotif() function is executed, followed by another slideDown function.
-            clearLoginNotif();
+            // The clearNotif() function is executed, followed by another slideDown function.
+            clearNotif();
             $("#register-form").slideDown(300);
         });
     });
@@ -19,8 +19,8 @@ $(document).ready(function () {
     $("#login-link").on('click', function () {
         // Once the function is executed, execute slideUp function, then execute another function.
         $("#register-form").slideUp(300, function () {
-            // The clearLoginNotif() function is executed, followed by another slideDown function.
-            clearLoginNotif();
+            // The clearNotif() function is executed, followed by another slideDown function.
+            clearNotif();
             $("#login-form").slideDown(300);
         })
     });
@@ -80,7 +80,8 @@ function register() {
             "username": "",
             "password": "",
             "gameDate": [],
-            "gamePoints": []
+            "gamePoints": [],
+            "gameOutcome": []
         };
 
         // Store the json object of the user, with the username as a key into the localstorage.
@@ -97,6 +98,12 @@ function login() {
     let username = document.getElementById("login-username").value.toLocaleLowerCase();
     let password = document.getElementById("login-password").value.toLocaleLowerCase();
 
+    if (!username || !password) {
+        addNotification(LOGIN_ALERT, "Username or Password field is empty!", false);
+        console.log("l0l");
+        return;
+    }
+
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let storageUsername = JSON.parse(localStorage.getItem(key)).username;
@@ -107,7 +114,7 @@ function login() {
         */
         if (storageUsername === username && storagePassword === password) {
             document.cookie = "username=" + username + ";path=/";
-            document.location.replace("score-history.php");
+            document.location.replace("index.php");
             return;
         }
     }
@@ -116,7 +123,7 @@ function login() {
 }
 
 // Cleans the form up when this function is called.
-function clearLoginNotif() {
+function clearNotif() {
     // removes all classes and text from our error, so that it isn't visible anymore.
     $(REGISTER_ALERT).removeClass("negative-alert");
     $(REGISTER_ALERT).removeClass("positive-alert");
@@ -128,20 +135,6 @@ function clearLoginNotif() {
 
     // Removes any text we got in our input element.
     $("input").val("");
-}
-
-
-function finishedGame() {
-    if (getUsernameCookie() !== null) {
-        let obj = JSON.parse(localStorage.getItem(getUsernameCookie()));
-        let date = new Date();
-
-        obj.gameDate.push(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + " | " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear());
-        obj.gamePoints.push(Math.floor(Math.random() * 100));
-
-        let updatedObj = JSON.stringify(obj);
-        localStorage.setItem(getUsernameCookie(), updatedObj);
-    }
 }
 
 function addStorage() {

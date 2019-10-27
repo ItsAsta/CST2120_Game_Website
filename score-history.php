@@ -20,10 +20,14 @@ navigationOutput('Score History');
         </tr>
         <tr>
             <th>TOTAL POINTS</th>
+            <th>TOTAL WINS</th>
+            <th>TOTAL LOSES</th>
             <th>GAMES PLAYED</th>
         </tr>
         <tr>
             <td id="total-game-points">N/A</td>
+            <td id="total-game-wins">N/A</td>
+            <td id="total-game-loss">N/A</td>
             <td id="total-games-played">N/A</td>
         </tr>
         </tbody>
@@ -31,8 +35,6 @@ navigationOutput('Score History');
     <table id="score-history-table" class="table center-table-contents display">
     </table>
 </div>
-<button style="margin: auto; display: block" onclick="finishedGame()">FINISHED GAME</button>
-<button style="margin: auto; display: block" id="clearData">CLEAR STORAGE</button>
-<?php leftFooterOutput("Score History")?>
+<?php footerOutput('Score History') ?>
 </body>
 </html>

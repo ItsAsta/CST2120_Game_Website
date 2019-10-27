@@ -1,9 +1,11 @@
 <?php
 
-function navigationOutput($currentPage) {
+function navigationOutput($currentPage)
+{
 
     // Using PHP, we'll add the first part of our navigation, which will be our class inside a div. It acts as a container.
-    echo '<div class="nav-bar">
+    echo '<div class="banner-container"><img src="./assets/resources/banner.png"></div>
+        <div class="nav-bar">
         <ul>';
 
     loopNavigation($currentPage);
@@ -12,22 +14,78 @@ function navigationOutput($currentPage) {
     echo '</ul></div>';
 }
 
-function leftFooterOutput($currentPage) {
+function footerOutput($currentPage) {
+    openFooter();
+    leftFooterOutput($currentPage);
+    centerFooterOutput();
+    rightFooterOutput();
+    closeFooter();
+}
 
+function leftFooterOutput($currentPage)
+{
     // Using PHP, we'll add the first part of our navigation, which will be our class inside a div. It acts as a container.
-    echo '<div class="footer">
-    <div class="footer-container-left">
+    echo '<div class="footer-container-left">
         <h2>NAVIGATE</h2>
+        <hr>
         <div class="footer-nav">
             <ul>';
 
     loopNavigation($currentPage);
 
     // At the end, we'll just close our elements tags.
-    echo '</ul></div></div></div>';
+    echo '</ul></div></div>';
 }
 
-function loopNavigation($currentPage) {
+function centerFooterOutput() {
+    echo '<div class="footer-container-center">
+            <h2>PLUGS</h2>
+            <hr>
+            <i class="fab fa-snapchat"></i>
+            <span>@BIGA</span>
+            <i class="fab fa-instagram"></i>
+            <span>@BIGA</span>
+            <br>
+            <i class="fas fa-globe"></i>
+            <span>@RSPeer.org</span>
+            <i class="fab fa-discord"></i>
+            <span>@discord.gg/Z6AJsdE</span>
+          </div>';
+}
+
+function rightFooterOutput()
+{
+    echo '<div class="footer-container-right">
+        <h2>TOP 5 USERS</h2>
+        <hr>
+        <ol class="footer-top-list">';
+
+    echo '<script  type="text/JavaScript">
+            for (let i = 0; i < getTopFive().length; i++) {
+                let li = document.createElement("li");
+
+                li.innerHTML = getTopFive()[i][0].toUpperCase();
+                let footerParent = document.getElementsByClassName("footer-top-list");
+                footerParent[0].insertBefore(li, footerParent.lastChild);
+            }
+        </script>';
+
+    echo '</ol>
+    </div>';
+}
+
+function openFooter()
+{
+    echo '<div class="footer">';
+}
+
+function closeFooter()
+{
+    echo '</div>';
+}
+
+function loopNavigation($currentPage)
+{
     // An array variable with our page names, which we'll match using the index with our second array.
     $names = array("Home", "Score History", "Scoreboard", "Login/Register");
 
@@ -35,15 +93,15 @@ function loopNavigation($currentPage) {
     $fileNames = array("index.php", "score-history.php", "scoreboard.php", "login-register.php");
 
     // We iterating over the length of $names array using a for loop.
-    for ($i = 0; $i < count($names); $i++){
+    for ($i = 0; $i < count($names); $i++) {
         echo '<li ';
         /*
             In this if statement, we are checking if the name we currently iterated on is the same as the page we
             passed as an arguement inside our $currentPage parameter.
             If it matches, we'll add an id attribute into our element, and the string `active` which we use in our css.
         */
-        if($names[$i] == $currentPage) {
-                echo 'id="active" ';
+        if ($names[$i] == $currentPage) {
+            echo 'id="active" ';
         }
 
         // Since we got a function that clears the cookie when the user logs out, we need the id "account-status"
@@ -70,7 +128,9 @@ function loopNavigation($currentPage) {
 
 }
 
-function debug_to_console($data) {
+
+function debug_to_console($data)
+{
     $output = $data;
     if (is_array($output))
         $output = implode(',', $output);

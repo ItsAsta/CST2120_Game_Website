@@ -9,16 +9,14 @@ $(document).ready(function() {
         console.log("Cleared storage - Size: " + localStorage.length);
     });
 
-    // changeNav();
-
     console.log("Index Ready")
 });
 
-function addNotification(id, text, boolean) {
+function addNotification(id, text, state) {
     const POSITIVE_ALERT_CLASS = "positive-alert";
     const NEGATIVE_ALERT_CLASS = "negative-alert";
 
-    if (boolean) {
+    if (state) {
         $(id).text(text);
         $(id).removeClass(NEGATIVE_ALERT_CLASS);
         $(id).addClass(POSITIVE_ALERT_CLASS);
