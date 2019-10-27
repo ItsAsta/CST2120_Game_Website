@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 
 function removeUser() {
-    Storage.removeItem(getUsernameCookie());
+    localStorage.removeItem(getUsernameCookie());
 }
 
 function addNotification(id, text, state) {

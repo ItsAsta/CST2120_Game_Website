@@ -82,11 +82,9 @@ function getTopFive() {
                 points.sort(function (a, b) {
                         return b[1] - a[1];
                 });
-                if (userAmount >= 5) {
-                        for (let i = 0; i < 5; i++) {
+                        for (let i = 0; i < userAmount; i++) {
                                 topFive.push([points[i][0], points[i][1]]);
                         }
-                }
         }
 
         return topFive;
