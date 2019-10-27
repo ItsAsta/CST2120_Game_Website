@@ -12,6 +12,10 @@ $(document).ready(function() {
     console.log("Index Ready")
 });
 
+function removeUser() {
+    Storage.removeItem(getUsernameCookie());
+}
+
 function addNotification(id, text, state) {
     const POSITIVE_ALERT_CLASS = "positive-alert";
     const NEGATIVE_ALERT_CLASS = "negative-alert";
