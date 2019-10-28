@@ -45,7 +45,6 @@ function centerFooterOutput() {
             <span>@BIGA</span>
             <i class="fab fa-instagram"></i>
             <span>@BIGA</span>
-            <br>
             <i class="fas fa-globe"></i>
             <span>@RSPeer.org</span>
             <i class="fab fa-discord"></i>
@@ -87,27 +86,27 @@ function closeFooter()
 function loopNavigation($currentPage)
 {
     // An array variable with our page names, which we'll match using the index with our second array.
-    $names = array("Home", "Score History", "Scoreboard", "Login/Register");
+    $pageTitle = array("Home", "Score History", "Scoreboard", "Login/Register");
 
     // An array variable with our file names which we'll redirect to using the HREF attribute.
     $fileNames = array("index.php", "score-history.php", "scoreboard.php", "login-register.php");
 
     // We iterating over the length of $names array using a for loop.
-    for ($i = 0; $i < count($names); $i++) {
+    for ($i = 0; $i < count($pageTitle); $i++) {
         echo '<li ';
         /*
             In this if statement, we are checking if the name we currently iterated on is the same as the page we
             passed as an arguement inside our $currentPage parameter.
             If it matches, we'll add an id attribute into our element, and the string `active` which we use in our css.
         */
-        if ($names[$i] == $currentPage) {
+        if ($pageTitle[$i] == $currentPage) {
             echo 'id="active" ';
         }
 
         // Since we got a function that clears the cookie when the user logs out, we need the id "account-status"
         // Therefore, we check if the string match the string in the 3rd index, which is either login/register or logout.
         // We then add the id attribute.
-        if ($names[$i] == $names[3]) {
+        if ($pageTitle[$i] == $pageTitle[3]) {
             echo 'id="account-status" ';
         }
 
@@ -115,7 +114,7 @@ function loopNavigation($currentPage)
         if (isset($_COOKIE['username'])) {
             // If the if statement returns true, we'll get the 3rd index in our array and change the string to logout.
             // Since the user is logged in, we want to display logout instead of login/register.
-            $names[3] = "Logout";
+            $pageTitle[3] = "Logout";
         }
 
         /*
@@ -123,14 +122,13 @@ function loopNavigation($currentPage)
             the page name and file name are matching. So we'll just get the value of each string from the array using the index.
          */
         // We then echo out our html code.
-        echo '><a href="' . $fileNames[$i] . '">' . $names[$i] . '</a></li>';
+        echo '><a href="' . $fileNames[$i] . '">' . $pageTitle[$i] . '</a></li>';
     }
 
 }
 
 
-function debug_to_console($data)
-{
+function debug_to_console($data) {
     $output = $data;
     if (is_array($output))
         $output = implode(',', $output);

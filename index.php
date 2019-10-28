@@ -78,7 +78,8 @@ navigationOutput('Home');
         </div>
     </div>
 </div>
-<button onclick="removeUser()">REMOVE LOGGED IN USER.</button>
+<input type="text" placeholder="Username" id="username-input" style="margin-left: 25px">
+<button onclick="removeUser()">REMOVE</button>
 <?php footerOutput('Home') ?>
 </body>
 </html>

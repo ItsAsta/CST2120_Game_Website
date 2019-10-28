@@ -4,16 +4,14 @@ $(document).ready(function() {
         document.cookie = "username=; expires=Thu, 01 Jan 2000 12:12:12 GMT; path=/;"
     });
 
-    $("#clearData").click(function () {
-        localStorage.clear();
-        console.log("Cleared storage - Size: " + localStorage.length);
-    });
-
+    console.log(getUsernameCookie());
     console.log("Index Ready")
 });
 
 function removeUser() {
-    localStorage.removeItem(getUsernameCookie());
+    localStorage.removeItem($("#username-input").val());
+    location.reload();
+    alert("Successfully removed > " + $("#username-input").val())
 }
 
 function addNotification(id, text, state) {
@@ -38,20 +36,6 @@ function getUsernameCookie() {
         return null;
     }
 
-    // Returns the cookie value by splitting the cookie string into an array, then getting the first index.
+    // Returns the cookie value by splitting the cookie string into an array, then getting the first index, which is the username
     return document.cookie.split("=")[1];
-}
-
-// A function to change the status of the navigation bar, whether we logged in or not.
-function changeNav() {
-    // Checks if the username cookie is there or not. Returns null if it isn't.
-    if (getUsernameCookie() !== null) {
-        // Change the "a" element text under the id "account-status"
-        $("#account-status a").text("Logout");
-        // Adds a new href attribute.
-        $("#account-status a").attr("href", "login-register.php");
-    } else {
-        $("#account-status a").text("Login/Register");
-        $("#account-status a").attr("href", "login-register.php");
-    }
 }

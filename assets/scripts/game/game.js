@@ -12,8 +12,8 @@ $(document).ready(function () {
     if (getUsernameCookie() !== null) {
         $("#username").text(JSON.parse(localStorage.getItem(getUsernameCookie())).username);
         $("#total-game-points").text(getTotalPoints(getUsernameCookie()));
-        $("#total-game-wins").text(getOutcomes(getUsernameCookie(), true));
-        $("#total-game-loss").text(getOutcomes(getUsernameCookie(), false));
+        $("#total-game-wins").text(getOutcome(getUsernameCookie(), true));
+        $("#total-game-loss").text(getOutcome(getUsernameCookie(), false));
         $("#total-games-played").text(getTotalGames(getUsernameCookie()));
         fillHistoryTable();
     }
@@ -258,7 +258,6 @@ function updateTraffic(round, winner) {
         $(ROBOT_SCORE_ID).text(robotScore + 3);
         animateScoreIncrease(USER_SCORE_ID, userScore);
         animateScoreIncrease(ROBOT_SCORE_ID, robotScore);
-        console.log("DRAW!");
         return;
     }
 
@@ -269,7 +268,6 @@ function updateTraffic(round, winner) {
         userRoundWins[1] += 1;
         $(USER_SCORE_ID).text(userScore + 5);
         animateScoreIncrease(USER_SCORE_ID, userScore);
-        console.log("YOU WIN!");
     }
 
     if (winner === 'robot') {
@@ -278,10 +276,8 @@ function updateTraffic(round, winner) {
         robotRoundWins[1] += 1;
         $(ROBOT_SCORE_ID).text(robotScore + 5);
         animateScoreIncrease(ROBOT_SCORE_ID, robotScore);
-        console.log("YOU LOSE!");
     }
 
-    console.log("GOING UP ONE ROUND");
     currentRound = (round + 1);
 }
 
@@ -301,24 +297,6 @@ function updateStorage(win) {
 
         let updatedObj = JSON.stringify(obj);
         localStorage.setItem(getUsernameCookie(), updatedObj);
-    }
-}
-
-function getOutcomes(user, wins) {
-    let totalWins = 0;
-    let totalLoss = 0;
-    for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gameOutcome.length; i++) {
-        if (JSON.parse(localStorage.getItem(user)).gameOutcome[i] === "WIN") {
-            totalWins += 1;
-        } else {
-            totalLoss += 1;
-        }
-    }
-
-    if (wins) {
-        return totalWins;
-    } else {
-        return totalLoss;
     }
 }
 

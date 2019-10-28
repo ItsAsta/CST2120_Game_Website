@@ -21,7 +21,7 @@ navigationOutput('Score History');
         <tr>
             <th>TOTAL POINTS</th>
             <th>TOTAL WINS</th>
-            <th>TOTAL LOSES</th>
+            <th>TOTAL LOST</th>
             <th>GAMES PLAYED</th>
         </tr>
         <tr>

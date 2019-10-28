@@ -100,7 +100,6 @@ function login() {
 
     if (!username || !password) {
         addNotification(LOGIN_ALERT, "Username or Password field is empty!", false);
-        console.log("l0l");
         return;
     }
 
