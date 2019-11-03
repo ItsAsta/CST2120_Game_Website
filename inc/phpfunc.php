@@ -103,18 +103,18 @@ function loopNavigation($currentPage)
             echo 'id="active" ';
         }
 
-        // Since we got a function that clears the cookie when the user logs out, we need the id "account-status"
-        // Therefore, we check if the string match the string in the 3rd index, which is either login/register or logout.
-        // We then add the id attribute.
-        if ($pageTitle[$i] == $pageTitle[3]) {
-            echo 'id="account-status" ';
-        }
-
         // We checking if the user is logged in by checking if there is any cookies set.
         if (isset($_COOKIE['username'])) {
             // If the if statement returns true, we'll get the 3rd index in our array and change the string to logout.
             // Since the user is logged in, we want to display logout instead of login/register.
             $pageTitle[3] = "Logout";
+        }
+
+        // Since we got a function that clears the cookie when the user logs out, we need the id "account-status"
+        // Therefore, we check if the string match the string in the 3rd index, which is either login/register or logout.
+        // We then add the id attribute.
+        if ($pageTitle[$i] == $pageTitle[3]) {
+            echo 'id="account-status" ';
         }
 
         /*
