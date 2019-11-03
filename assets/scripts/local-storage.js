@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //Function that fills our global scoreboard table.
     fillGlobalScoreboard();
     console.log("Local Storage Ready");
 });
@@ -70,26 +71,37 @@ function fillHistoryTable() {
     });
 }
 
+//A function that will return the top 5 users of our site.
 function getTopFive() {
+    //Two array variables.
     let points = [];
     let topFive = [];
+    //A variable that stores the amount of user's we have got stored in our local storage.
     let userAmount = localStorage.length;
+
+    //If we have got more than 0 users, which confirms that our local storage is not empty.
     if (userAmount > 0) {
+
+        //A for loop to iterate over all our users.
         for (let i = 0; i < userAmount; i++) {
             // Since localStorage.key() takes an int for the index, we'll pass it the index from our for loop.
             let key = localStorage.key(i);
+            //We then push each users total points into our points array.
             points.push([key, getTotalPoints(key)]);
         }
 
+        //This will sort all the points from the highest to the lowest.
         points.sort(function (a, b) {
             return b[1] - a[1];
         });
 
-            for (let i = 0; i < Math.min(5, userAmount); i++) {
-                topFive.push([points[i][0], points[i][1]]);
-            }
+        //We then used that to find out who the top 5 users are, by using a for loop to iterate up to 5.
+        for (let i = 0; i < Math.min(5, userAmount); i++) {
+            //pushes the top 5 user's name and their respective points into our points array variable.
+            topFive.push([points[i][0], points[i][1]]);
+        }
     }
-
+    //We then return our topFive array value, so that we can use it else where.
     return topFive;
 }
 
@@ -112,6 +124,8 @@ function getTotalPoints(user) {
     return totalPoints;
 }
 
+//This function is used to display the outcome for the user, the total wins and loses.
+//It has 2 parameters, the user's name and a boolean whether they want to get the wins or loses.
 function getOutcome(user, wins) {
     let totalWins = 0;
     let totalLoss = 0;

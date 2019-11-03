@@ -14,7 +14,8 @@ function navigationOutput($currentPage)
     echo '</ul></div>';
 }
 
-function footerOutput($currentPage) {
+function footerOutput($currentPage)
+{
     openFooter();
     leftFooterOutput($currentPage);
     centerFooterOutput();
@@ -37,21 +38,24 @@ function leftFooterOutput($currentPage)
     echo '</ul></div></div>';
 }
 
-function centerFooterOutput() {
+//A very simple php function to just output html.
+function centerFooterOutput()
+{
     echo '<div class="footer-container-center">
-            <h2>PLUGS</h2>
+            <h2>CONTACT</h2>
             <hr>
             <i class="fab fa-snapchat"></i>
-            <span>@BIGA</span>
+            <span>@AzuzAlDosari</span>
             <i class="fab fa-instagram"></i>
-            <span>@BIGA</span>
+            <span>@AzuzAlDosari</span>
             <i class="fas fa-globe"></i>
-            <span>@RSPeer.org</span>
+            <span>WWW.RSPeer.org</span>
             <i class="fab fa-discord"></i>
-            <span>@discord.gg/Z6AJsdE</span>
+            <span>WWW.Discord.gg/Z6AJsdE</span>
           </div>';
 }
 
+//This php function will output our right side footer.
 function rightFooterOutput()
 {
     echo '<div class="footer-container-right">
@@ -60,24 +64,34 @@ function rightFooterOutput()
         <ol class="footer-top-list">';
 
     echo '<script  type="text/JavaScript">
+            //A for loop iterating over the return value of our getTopFive function.
+            // We use the length of the array so we know when the for loop should break out of the loop. 
             for (let i = 0; i < getTopFive().length; i++) {
+                //Stores a li html element into a variable.
                 let li = document.createElement("li");
-
+                //Since our return value has 2 arrays within 1 array. The array is the username
+                //The second array is the points. We`ll use the incremented integer to get the username
+                //Then get the respective points and display it via html.
                 li.innerHTML = getTopFive()[i][0].toUpperCase();
+                //Get the parent element of the html of which we want to display our li element under, then store it into a variable.
                 let footerParent = document.getElementsByClassName("footer-top-list");
+                //We then use that parent variable, using the first index, then inserting our li element before our parent`s last child.
                 footerParent[0].insertBefore(li, footerParent.lastChild);
             }
         </script>';
 
+    //Close our tags appropriately.
     echo '</ol>
     </div>';
 }
 
+//A function to open our footer element.
 function openFooter()
 {
     echo '<div class="footer">';
 }
 
+//A function to close our footer element.
 function closeFooter()
 {
     echo '</div>';
@@ -124,11 +138,11 @@ function loopNavigation($currentPage)
         // We then echo out our html code.
         echo '><a href="' . $fileNames[$i] . '">' . $pageTitle[$i] . '</a></li>';
     }
-
 }
 
-
-function debug_to_console($data) {
+//A simple function that aids in sending information to the console debugger via php.
+function debug_to_console($data)
+{
     $output = $data;
     if (is_array($output))
         $output = implode(',', $output);

@@ -8,9 +8,11 @@ html, body {
     font-family: Simp, "Times New Roman", serif;
     letter-spacing: 3px;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
+
 @font-face {
     font-family: Simp;
     src: local('Simplifica Regular'), local('Simplifica');

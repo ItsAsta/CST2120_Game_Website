@@ -135,7 +135,3 @@ function clearNotif() {
     // Removes any text we got in our input element.
     $("input").val("");
 }
-
-function addStorage() {
-
-}
