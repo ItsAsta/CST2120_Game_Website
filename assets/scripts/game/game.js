@@ -28,7 +28,6 @@ $(document).ready(function () {
     }
 
     //The functions below are ID's of element that once clicked, they'll execute a function. I'll be commenting them.
-
     $("#user-rock").click(function () {
         //If the element of that ID is clicked, we'll execute the User selection function.
         userSelection('rock', "#user-rock");
