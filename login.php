@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="assets/styles/login-register-stylesheet.css"
-    <?php include_once('inc/scripts.inc.php'); ?>
-    <title>Login/Register</title>
-</head>
 <?php
-include_once('inc/phpfunc.php');
+include_once('inc/phpFunc.php');
+headerOutput('Login/Register', array("assets/styles/stylesheet.css", "assets/styles/formStylesheet.css"));
 navigationOutput('Login/Register');
 ?>
 <body background="assets/resources/form-background.jpg">
+
+<!-- LOGIN FORM SECTION -->
 <div class="form-container" id="login-form">
     <form>
         <label style="font-weight: bold">LOGIN</label>
@@ -31,6 +25,7 @@ navigationOutput('Login/Register');
     </form>
 </div>
 
+<!-- REGISTER FORM SECTION -->
 <div class="form-container" id="register-form">
     <form>
         <label style="font-weight: bold">REGISTER</label>
@@ -53,5 +48,3 @@ navigationOutput('Login/Register');
     </form>
 </div>
 <?php footerOutput('Login/Register') ?>
-</body>
-</html>

@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="assets/styles/datatables.css">
-    <?php include_once('inc/scripts.inc.php'); ?>
-    <title>Score History</title>
-</head>
-<body>
 <?php
-include_once('inc/phpfunc.php');
+include_once('inc/phpFunc.php');
+headerOutput('Score History', array("assets/styles/stylesheet.css", "assets/styles/datatables.css"));
 navigationOutput('Score History');
 ?>
-<div class="scoreboard-container">
+<div class="leaderboard-container">
+    <!-- PERSONAL HISTORY SECTION -->
     <table class="table">
         <tbody>
         <tr>
@@ -32,9 +24,9 @@ navigationOutput('Score History');
         </tr>
         </tbody>
     </table>
+
+    <!-- GAMES PLAYED HISTORY SECTION -->
     <table id="score-history-table" class="table center-table-contents display">
     </table>
 </div>
 <?php footerOutput('Score History') ?>
-</body>
-</html>

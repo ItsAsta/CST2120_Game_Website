@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/styles/stylesheet.css">
-    <?php include('inc/scripts.inc.php'); ?>
-    <title>Home</title>
-</head>
-<body>
 <?php
-include_once('inc/phpfunc.php');
+include_once('inc/phpFunc.php');
+headerOutput('Home', array("assets/styles/stylesheet.css"));
 navigationOutput('Home');
 ?>
+<!-- LOGIN BEFORE PLAYING SECTION -->
 <div id="game-login-background">
-    <button onclick="document.location.href = 'login-register.php'" class="game-login-btn">LOGIN</button>
+    <button onclick="document.location.href = 'loginRegister.php'" class="game-login-btn">LOGIN</button>
 </div>
+
+<!-- MAIN GAME SECTION -->
 <div class="main-game-container">
+    <!-- USER SECTION -->
     <div class="left-image-container">
         <div class="option-wrapper">
             <img id="user-rock" src="assets/resources/rock.png" alt="ROCK">
@@ -38,6 +34,7 @@ navigationOutput('Home');
         </div>
     </div>
 
+    <!-- TRAFFIC LIGHT -->
     <div class="center-game-container">
         <div class="left-out-of-five-container">
             <div id="user-rnd-1" class="circle"></div>
@@ -78,8 +75,4 @@ navigationOutput('Home');
         </div>
     </div>
 </div>
-<input type="text" placeholder="Username" id="username-input" style="margin-left: 25px">
-<button onclick="removeUser()">REMOVE</button>
 <?php footerOutput('Home') ?>
-</body>
-</html>

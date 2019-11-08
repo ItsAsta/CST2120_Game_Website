@@ -1,12 +1,12 @@
 $(document).ready(function () {
-    //Function that fills our global scoreboard table.
-    fillGlobalScoreboard();
+    //Function that fills our global leaderboard table.
+    fillGlobalLeaderboard();
     console.log("Local Storage Ready");
 });
 
 
-// A function that is called to fill the global scoreboard.
-function fillGlobalScoreboard() {
+// A function that is called to fill the global leaderboard.
+function fillGlobalLeaderboard() {
     // We initialise an empty array.
     let dataSet = [];
 
@@ -23,7 +23,7 @@ function fillGlobalScoreboard() {
     }
 
     // That's a plugin which would make our table sortable.
-    $('#global-scoreboard-table').DataTable({
+    $('#global-leaderboard-table').DataTable({
         "order": [[0, "desc"]],
         data: dataSet,
         columns: [
@@ -118,9 +118,9 @@ function getUsername(user) {
 // A function with a parameter, which returns how many total points a user has when we pass an argument to it.
 function getTotalPoints(user) {
     let totalPoints = 0;
-    for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gamePoints.length; i++) {
-        totalPoints += JSON.parse(localStorage.getItem(user)).gamePoints[i];
-    }
+        for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gamePoints.length; i++) {
+            totalPoints += JSON.parse(localStorage.getItem(user)).gamePoints[i];
+        }
     return totalPoints;
 }
 

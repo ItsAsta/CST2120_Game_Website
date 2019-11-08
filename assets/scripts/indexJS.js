@@ -4,10 +4,10 @@ $(document).ready(function() {
         document.cookie = "username=; expires=Thu, 01 Jan 2000 12:12:12 GMT; path=/;"
     });
 
-    console.log(getUsernameCookie());
     console.log("Index Ready")
 });
 
+//Just a simple function that I've made myself so I can remove specific users from my local storage while working on the website.
 function removeUser() {
     localStorage.removeItem($("#username-input").val());
     location.reload();

@@ -186,7 +186,8 @@ function animateRobotSelection(selection) {
     }
 }
 
-//These 2 array variables are used to track what round we are on, so that we can show the wins and loses.
+//These 2 arrays have 2 arrays inside each of them. One with the html id's of traffic light.
+// Then the other is to track which round we are currently on.
 let userRoundWins = [["#user-rnd-1", "#user-rnd-2", "#user-rnd-3", "#user-rnd-4", "#user-rnd-5"], 0];
 let robotRoundWins = [["#robot-rnd-1", "#robot-rnd-2", "#robot-rnd-3", "#robot-rnd-4", "#robot-rnd-5"], 0];
 
@@ -203,7 +204,7 @@ function updateWinner(winner) {
     let robotScore = parseInt($(ROBOT_SCORE_ID).text());
 
     //These 2 variables will get the user and the robot's wins and losses.
-    //We then use replace to remove all characters, so that we are only left with an integer.
+    //We then use replace to remove all characters, so that we are only left with an integer in a string type.
     let userWins = $(USER_WINS_ID).text().replace(/[^\d.]/g, '');
     let userLoss = $(USER_LOSS_ID).text().replace(/[^\d.]/g, '');
 
@@ -211,7 +212,7 @@ function updateWinner(winner) {
     let robotLoss = $(ROBOT_LOSS_ID).text().replace(/[^\d.]/g, '');
 
 
-    //A switch case statement with a current round parameter. The rounds start from 0 and increases from there.
+    //A switch case statement with a current round parameter. The rounds starts from 0 and increases from there.
     switch (currentRound) {
         case 0:
             if (winner === 'user') {
@@ -275,6 +276,7 @@ function updateWinner(winner) {
                 //If the if statement returns true, we'll add an additional 25 points to the points.
                 tempTotalPoints += 25;
                 $(USER_SCORE_ID).text(userScore + 25);
+                //We use parseInt to convert the string to the data type Integer.
                 //We'll add a win to the user, and a loss to the robot.
                 $(USER_WINS_ID).text("WINS: " + (parseInt(userWins) + 1));
                 $(ROBOT_LOSS_ID).text("LOST: " + (parseInt(robotLoss) + 1));
@@ -285,6 +287,7 @@ function updateWinner(winner) {
             } else {
                 //Otherwise, we'll give an additional 25 points to the robot.
                 $(ROBOT_SCORE_ID).text(robotScore + 25);
+                //We use parseInt to convert the string to the data type Integer.
                 //Give the robot a win, then the user a loss.
                 $(ROBOT_WINS_ID).text("WINS: " + (parseInt(robotWins) + 1));
                 $(USER_LOSS_ID).text("LOST: " + (parseInt(userLoss) + 1));
@@ -299,7 +302,7 @@ function updateWinner(winner) {
             robotRoundWins = [["#robot-rnd-1", "#robot-rnd-2", "#robot-rnd-3", "#robot-rnd-4", "#robot-rnd-5"], 0];
             currentRound = 0;
             tempTotalPoints = 0;
-            //This will remove all style attributes under the specified class.
+            //This will remove all style attributes under the specified class, using an in-line for each loop.
             //In this case, left-out-of-five-container and right-out-of-five-container.
             document.querySelectorAll('.left-out-of-five-container > div').forEach(e => e.removeAttribute('style'));
             document.querySelectorAll('.right-out-of-five-container > div').forEach(e => e.removeAttribute('style'));
@@ -402,14 +405,14 @@ function animateScoreIncrease(id, previousPoints) {
     $(id).prop('Counter', previousPoints).animate({
         Counter: $(id).text()
     }, {
-        //The amount of time the animation should take, in this case it's 1 second.
-        duration: 1000,
-        //The type of easing we want to use, we decided to use 'swing' for the smoothness.
-        easing: 'swing',
         //This will increase the points to the current amount of points we got in our element.
         step: function (now) {
             $(id).text(Math.ceil(now));
-        }
+        },
+        //The amount of time the animation should take, in this case it's 1 second.
+        duration: 1000,
+        //The type of easing we want to use, we decided to use 'swing' for the smoothness.
+        easing: 'swing'
     });
 }
 

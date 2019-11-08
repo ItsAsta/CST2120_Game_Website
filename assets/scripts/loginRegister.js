@@ -28,13 +28,13 @@ $(document).ready(function () {
     console.log("Login/Register Ready");
 });
 
-// Constant letiables to store repetitive non-immutable text.
+// Constant variables to store repetitive non-immutable text.
 const LOGIN_ALERT = "#login-alert";
 const REGISTER_ALERT = "#register-alert";
 
 
 function register() {
-    // Stores the username and password entered by the user into letiables.
+    // Stores the username and password entered by the user into variables.
     let username = document.getElementById("register-username").value.toLocaleLowerCase();
     let password = document.getElementById("register-password").value.toLocaleLowerCase();
     let confirmPassword = document.getElementById("register-confirm-password").value.toLocaleLowerCase();
@@ -94,7 +94,7 @@ function register() {
 }
 
 function login() {
-    // Stores the username and password entered by the user into letiables.
+    // Stores the username and password entered by the user into variables.
     let username = document.getElementById("login-username").value.toLocaleLowerCase();
     let password = document.getElementById("login-password").value.toLocaleLowerCase();
 
