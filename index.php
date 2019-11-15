@@ -5,7 +5,7 @@ navigationOutput('Home');
 ?>
 <!-- LOGIN BEFORE PLAYING SECTION -->
 <div id="game-login-background">
-    <button onclick="document.location.href = 'loginRegister.php'" class="game-login-btn">LOGIN</button>
+    <button onclick="document.location.href = 'login.php'" class="game-login-btn">LOGIN</button>
 </div>
 
 <!-- MAIN GAME SECTION -->

@@ -3,15 +3,15 @@ $(document).ready(function () {
     $("#register-form").hide();
 
     // Slides down our login-form with the id login-form.
-    $("#login-form").slideDown(300);
+    $("#login-form").slideDown(1000);
 
     // If the register link text is clicked, we'll execute a function.
     $("#register-link").on('click', function () {
         // Once the function is executed, execute slideUp function, then execute another function.
-        $("#login-form").slideUp(300, function () {
+        $("#login-form").slideUp(1000, function () {
             // The clearNotif() function is executed, followed by another slideDown function.
             clearNotif();
-            $("#register-form").slideDown(300);
+            $("#register-form").slideDown(1000);
         });
     });
 
