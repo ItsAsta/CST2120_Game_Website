@@ -54,7 +54,7 @@ function loopNavigation($currentPage)
     $pageTitle = array("Home", "Score History", "Leaderboard", "Login/Register");
 
     // An array variable with our file names which we'll redirect to using the HREF attribute.
-    $fileNames = array("index.php", "scoreHistory.php", "Leaderboard.php", "login.php");
+    $fileNames = array("index.php", "scoreHistory.php", "leaderboard.php", "login.php");
 
     // We iterating over the length of $names array using a for loop.
     for ($i = 0; $i < count($pageTitle); $i++) {
@@ -100,6 +100,7 @@ function footerOutput($currentPage)
     centerFooterOutput();
     rightFooterOutput();
     closeFooter();
+    copyrightFooterOutput();
 }
 
 function leftFooterOutput($currentPage)
@@ -123,14 +124,24 @@ function centerFooterOutput()
     echo '<div class="footer-container-center">
             <h2>CONTACT</h2>
             <hr>
+            
             <i class="fab fa-snapchat"></i>
             <span>@AzuzAlDosari</span>
+            
+            <a href="https://www.instagram.com/azuzaldosari/">
             <i class="fab fa-instagram"></i>
             <span>@AzuzAlDosari</span>
+            </a>
+            
+            <a href="https://github.com/ItsAsta">
+            <i class="fab fa-github"></i>
+            <span>@ItsAsta</span>
+            </a>
+            
+            <a href="https://rspeer.org/">
             <i class="fas fa-globe"></i>
             <span>WWW.RSPeer.org</span>
-            <i class="fab fa-discord"></i>
-            <span>WWW.Discord.gg/Z6AJsdE</span>
+            </a>
           </div>';
 }
 
@@ -164,6 +175,13 @@ function rightFooterOutput()
 
     //Close our tags appropriately.
     echo '</ol>
+    </div>';
+}
+
+function copyrightFooterOutput()
+{
+    echo '<div class="copyright-footer">
+        <span>© Middlesex University - AbdulAziz Al-Khafaji</span>
     </div>';
 }
 
