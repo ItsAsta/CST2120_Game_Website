@@ -178,6 +178,7 @@ function rightFooterOutput()
     </div>';
 }
 
+//Put a copyright banner at the end of our footer
 function copyrightFooterOutput()
 {
     echo '<div class="copyright-footer">
