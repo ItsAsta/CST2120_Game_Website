@@ -18,10 +18,10 @@ $(document).ready(function () {
     // If the login link text is clicked, we'll execute a function.
     $("#login-link").on('click', function () {
         // Once the function is executed, execute slideUp function, then execute another function.
-        $("#register-form").slideUp(300, function () {
+        $("#register-form").slideUp(1000, function () {
             // The clearNotif() function is executed, followed by another slideDown function.
             clearNotif();
-            $("#login-form").slideDown(300);
+            $("#login-form").slideDown(1000);
         })
     });
 
@@ -31,6 +31,8 @@ $(document).ready(function () {
 // Constant variables to store repetitive non-immutable text.
 const LOGIN_ALERT = "#login-alert";
 const REGISTER_ALERT = "#register-alert";
+const INPUT_IDS = ["register-username", "register-password", "register-confirm-password", "register-first-name", "register-last-name",
+    "register-email", "register-address", "register-postcode"];
 
 
 function register() {
@@ -48,23 +50,27 @@ function register() {
            to check if the username is already taken.
         */
         if (username === JSON.parse(localStorage.getItem(key)).username) {
-            addNotification(register(), "Username already taken!", false);
+            addNotification(REGISTER_ALERT, "Username already taken!", false);
             return;
         }
     }
 
-    /* Checks if username or password is less than 3 characters in length.
-       If it returns true, we'll throw an error.
-     */
-    if (username.length < 3 || password.length < 3) {
-        addNotification(REGISTER_ALERT, "Username or Password can't be less than 3 characters!", false);
-        return;
-    }
+    //For each to iterate our inputs using the constant variable with their IDs instead of using repeated code
+    for (let element of INPUT_IDS) {
+        //Get the value of the input
+        let value = $("#" + element).val();
 
-    // Make sure all the fields are not empty.
-    if (!username || !password || !confirmPassword) {
-        addNotification(REGISTER_ALERT, "One or more fields are empty!", false);
-        return;
+        //Check if the input is empty
+        if (!value) {
+            addNotification(REGISTER_ALERT, "One or more fields are empty!", false);
+            break;
+        }
+
+        //Check if the input is less than 3 characters
+        if (value.length < 3) {
+            addNotification(REGISTER_ALERT, "One or more fields are less than 3 characters!", false);
+            break;
+        }
     }
 
     // Checks if the first and second password match each other for verification.
@@ -75,10 +81,15 @@ function register() {
 
     // If username field is not empty and both password match, then register the account.
     if (username && (password === confirmPassword)) {
-        // Initiate a json object to store user information in a letiable.
+        // Initiate a json object to store user information in a variable.
         let accountObj = {
             "username": "",
             "password": "",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "address": "",
+            "postCode": "",
             "gameDate": [],
             "gamePoints": [],
             "gameOutcome": []
@@ -108,7 +119,7 @@ function login() {
         let storageUsername = JSON.parse(localStorage.getItem(key)).username;
         let storagePassword = JSON.parse(localStorage.getItem(key)).password;
 
-        /* If the username matches the username we got store in our local storage, as well as the password,
+        /* If the username matches the username we got stored in our local storage, as well as the password,
            then we'll continue logging the user in, else we'll throw an error.
         */
         if (storageUsername === username && storagePassword === password) {

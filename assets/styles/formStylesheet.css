@@ -1,7 +1,7 @@
 /*A bit of design to our form container*/
-.form-container {
+.main-form-container {
     background-color: rgba(0, 0, 0, 0.5);
-    width: 400px;
+    width: 600px;
     border-radius: 10px;
     border: #ffffff solid 1px;
     box-shadow: 0 0 30px 10px #000000;
@@ -9,6 +9,15 @@
     text-align: center;
     display: none;
     color: white;
+}
+
+.left-form-container {
+    float: left;
+    margin-right: 10px;
+}
+
+.right-form-container {
+    float: right;
 }
 
 form {
@@ -35,7 +44,7 @@ form button {
     border: #9b9b9b solid 1px;
     color: white;
     outline: none;
-    width: 150px;
+    width: 210px;
     margin-bottom: 50px;
     height: 22px;
     border-radius: 10px;

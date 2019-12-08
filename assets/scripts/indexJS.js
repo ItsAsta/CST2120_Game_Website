@@ -7,14 +7,7 @@ $(document).ready(function() {
     console.log("Index Ready")
 });
 
-//Just a simple function that I've made myself so I can remove specific users from my local storage while working on the website.
-function removeUser() {
-    localStorage.removeItem($("#username-input").val());
-    location.reload();
-    alert("Successfully removed > " + $("#username-input").val())
-}
-
-//This function is used to show certain nofitications to the user during registering/login.
+//This function is used to show certain notifications to the user during registering/login.
 //It takes 3 parameters. The id of the element in choice, the text you want to display and whether it's a positive or negative error.
 function addNotification(id, text, state) {
     const POSITIVE_ALERT_CLASS = "positive-alert";

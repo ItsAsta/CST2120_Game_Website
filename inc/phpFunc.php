@@ -26,7 +26,7 @@ function outputScripts()
 {
     echo '<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="assets/scripts/indexJS.js"></script>
-        <script type="text/javascript" src="assets/scripts/loginRegister.js"></script>
+        <script type="text/javascript" src="assets/scripts/login.js"></script>
         <script type="text/javascript" src="assets/scripts/game.js"></script>
         <script type="text/javascript" src="assets/scripts/localStorage.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
@@ -51,7 +51,7 @@ function navigationOutput($currentPage)
 function loopNavigation($currentPage)
 {
     // An array variable with our page names, which we'll match using the index with our second array.
-    $pageTitle = array("Home", "Score History", "Leaderboard", "Login/Register");
+    $pageTitle = array("Home", "Score History", "Leaderboard", "Login");
 
     // An array variable with our file names which we'll redirect to using the HREF attribute.
     $fileNames = array("index.php", "scoreHistory.php", "leaderboard.php", "login.php");
