@@ -110,6 +110,7 @@ function getTotalGames(user) {
     if (localStorage.length > 0) {
         return JSON.parse(localStorage.getItem(user)).gameDate.length;
     }
+    return null;
 }
 
 // A function with a parameter, which returns the user when we pass an argument to it.
