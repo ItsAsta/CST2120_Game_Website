@@ -75,6 +75,4 @@ navigationOutput('Home');
         </div>
     </div>
 </div>
-<input type="text" id="test">
-<button type="button" onclick="testFunction()">Test</button>
 <?php footerOutput('Home') ?>
