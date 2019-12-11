@@ -60,16 +60,22 @@ function register() {
         //Get the value of the input
         let value = $("#" + element).val();
 
+        //Check if the element we iterating over right now is email and that whether we have @ sign or not
+        if (element.includes("email") && value.indexOf("@") === -1) {
+            addNotification(REGISTER_ALERT, "Email has an incorrect format!", false);
+            return;
+        }
+
         //Check if the input is empty
         if (!value) {
             addNotification(REGISTER_ALERT, "One or more fields are empty!", false);
-            break;
+            return;
         }
 
         //Check if the input is less than 3 characters
         if (value.length < 3) {
             addNotification(REGISTER_ALERT, "One or more fields are less than 3 characters!", false);
-            break;
+            return;
         }
     }
 

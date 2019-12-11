@@ -25,11 +25,11 @@ function headerOutput($title, $styleSheetPath)
 function outputScripts()
 {
     echo '<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
         <script type="text/javascript" src="assets/scripts/indexJS.js"></script>
         <script type="text/javascript" src="assets/scripts/login.js"></script>
         <script type="text/javascript" src="assets/scripts/game.js"></script>
         <script type="text/javascript" src="assets/scripts/localStorage.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
         <script type="text/javascript" src="https://kit.fontawesome.com/a054ec7c89.js" crossorigin="anonymous"></script>';
 }
 

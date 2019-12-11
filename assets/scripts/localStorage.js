@@ -107,21 +107,29 @@ function getTopFive() {
 
 // A function with a parameter, which returns how many games a user has when we pass an argument to it.
 function getTotalGames(user) {
-    return JSON.parse(localStorage.getItem(user)).gameDate.length;
+    if (localStorage.length > 0) {
+        return JSON.parse(localStorage.getItem(user)).gameDate.length;
+    }
 }
 
 // A function with a parameter, which returns the user when we pass an argument to it.
 function getUsername(user) {
-    return JSON.parse(localStorage.getItem(user)).username;
+    if (localStorage.length > 0) {
+        return JSON.parse(localStorage.getItem(user)).username;
+    }
+    return null;
 }
 
 // A function with a parameter, which returns how many total points a user has when we pass an argument to it.
 function getTotalPoints(user) {
     let totalPoints = 0;
+    if (localStorage.length > 0) {
         for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gamePoints.length; i++) {
             totalPoints += JSON.parse(localStorage.getItem(user)).gamePoints[i];
         }
-    return totalPoints;
+        return totalPoints;
+    }
+    return null;
 }
 
 //This function is used to display the outcome for the user, the total wins and loses.
@@ -129,17 +137,20 @@ function getTotalPoints(user) {
 function getOutcome(user, wins) {
     let totalWins = 0;
     let totalLoss = 0;
-    for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gameOutcome.length; i++) {
-        if (JSON.parse(localStorage.getItem(user)).gameOutcome[i] === "WIN") {
-            totalWins += 1;
+    if (localStorage.length > 0) {
+        for (let i = 0; i < JSON.parse(localStorage.getItem(user)).gameOutcome.length; i++) {
+            if (JSON.parse(localStorage.getItem(user)).gameOutcome[i] === "WIN") {
+                totalWins += 1;
+            } else {
+                totalLoss += 1;
+            }
+        }
+
+        if (wins) {
+            return totalWins;
         } else {
-            totalLoss += 1;
+            return totalLoss;
         }
     }
-
-    if (wins) {
-        return totalWins;
-    } else {
-        return totalLoss;
-    }
+    return null;
 }
