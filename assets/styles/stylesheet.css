@@ -77,13 +77,13 @@ html, body {
     background-color: #f5f5f5;
     font-size: 13px;
     height: 200px;
-    width:100%;
+    width: 100%;
     text-align: center;
 }
 
 .footer-wrapper {
     min-height: 100%;
-    padding-bottom:100px;
+    padding-bottom: 100px;
     position: relative;
 }
 
@@ -255,7 +255,7 @@ html, body {
 
 
 .selected {
-    -webkit-animation: moveSelection 0.5s infinite  alternate;
+    -webkit-animation: moveSelection 0.5s infinite alternate;
     border-radius: 10px;
 }
 
@@ -353,7 +353,7 @@ html, body {
 
 @keyframes moveConfirmBtn {
     0% {
-        transform: scale(1,1);
+        transform: scale(1, 1);
     }
     100% {
         transform: scale(1.2, 1.2);

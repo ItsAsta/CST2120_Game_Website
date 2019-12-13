@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // An on click function that logs out by removing the cookie if the element specified is clicked.
     $("#account-status").click(function () {
         document.cookie = "username=; expires=Thu, 01 Jan 2000 12:12:12 GMT; path=/;"
