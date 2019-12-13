@@ -55,7 +55,7 @@ function register() {
         }
     }
 
-    //For each to iterate our inputs using the constant variable with their IDs instead of using repeated code
+    //For each loop to iterate our inputs using the constant variable with their IDs instead of using repeated code
     for (let element of INPUT_IDS) {
         //Get the value of the input
         let value = $("#" + element).val();

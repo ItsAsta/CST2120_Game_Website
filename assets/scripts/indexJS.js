@@ -30,8 +30,8 @@ function addNotification(id, text, state) {
 
 // A function to get the username cookie.
 function getUsernameCookie() {
-    // If the string "username=" is not there, we assume there isn't any cookie.
-    if (document.cookie.indexOf("username=") < 0) {
+    // If the string "username=" is not there, we assume there isn't any cookie, therefore return a null.
+    if (document.cookie.indexOf("username=") === -1) {
         return null;
     }
 

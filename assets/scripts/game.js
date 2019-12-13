@@ -23,7 +23,7 @@ $(document).ready(function () {
         $("#total-game-loss").text(getOutcome(getUsernameCookie(), false));
         $("#total-games-played").text(getTotalGames(getUsernameCookie()));
 
-        //A function that will fill out the user's history table.
+        //A function that will fills out the user's history table.
         fillHistoryTable();
     }
 
@@ -66,7 +66,7 @@ const ROBOT_LOSS_ID = "#robot-loss";
 
 const DRAWS_ID = "#draws";
 
-//This function is execute, it has 2 parameters. Name of the individual e.g. user or robot. Then the element id.
+//This function has 2 parameters. Name of the individual e.g. user or robot. Then the element id.
 function userSelection(name, id) {
 
     //We iterate over all the available options that the player can choose from.

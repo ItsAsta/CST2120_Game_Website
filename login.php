@@ -1,7 +1,7 @@
 <?php
 include_once('inc/phpFunc.php');
-headerOutput('Login/Register', array("assets/styles/stylesheet.css", "assets/styles/formStylesheet.css"));
-navigationOutput('Login/Register');
+headerOutput('Login', array("assets/styles/stylesheet.css", "assets/styles/formStylesheet.css"));
+navigationOutput('Login');
 ?>
     <body background="assets/resources/form-background.jpg">
 
@@ -68,4 +68,4 @@ navigationOutput('Login/Register');
             <a id="login-link" class="clickable-text">Click to login</a>
         </form>
     </div>
-<?php footerOutput('Login/Register') ?>
+<?php footerOutput('Login') ?>

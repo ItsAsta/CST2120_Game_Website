@@ -24,8 +24,11 @@ function fillGlobalLeaderboard() {
 
     // That's a plugin which would make our table sortable.
     $('#global-leaderboard-table').DataTable({
+        //Order the first index of the table, which would be the points
         "order": [[0, "desc"]],
+        //Display the data that we have stored in our dataSet variable
         data: dataSet,
+        //Creates columns with their titles for our data
         columns: [
             {title: "TOTAL POINTS"},
             {title: "TOTAL WINS"},
