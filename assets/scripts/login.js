@@ -60,7 +60,7 @@ function register() {
         //Get the value of the input
         let value = $("#" + element).val();
 
-        //Check if the element we iterating over right now is email and that whether we have @ sign or not
+        //Check if the element we iterating over right now is email and that whether we have @ sign or not.
         if (element.includes("email") && value.indexOf("@") === -1) {
             addNotification(REGISTER_ALERT, "Email has an incorrect format!", false);
             return;
